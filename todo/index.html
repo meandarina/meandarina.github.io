@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+	<title>Test-Form</title>
+</head>
+<body>
+	<div class="container">
+  
+  <h2>Менеджер задач</h2>
+  
+  <form>
+    
+    <div class="group">      
+      <input type="text" name="add" id='task_input' required autocomplete="off">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Добавить задачу</label>
+      <input type="submit" id="submit" >
+    </div>
+      
+<!--     <div class="group">
+      <input type="text" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Email</label>
+    </div> -->
+    
+  </form>
+
+  <div id="tasks">
+    
+  </div>
+
+</div>
+
+<script>
+  var  tasks = document.getElementById('tasks');
+  var input = document.getElementById('task_input');
+  var submit = document.getElementById('submit');
+  var list = [];
+
+  submit.addEventListener('click', function(e) {
+    if (!input.value){
+      retutn;
+    }
+    e.preventDefault();
+    list.push(input.value);
+    var task = document.createElement('p');
+    task.textContent = input.value;
+    task.addEventListener('click', function () {
+      list.splice(list.indexOf(task.textContent), 1);
+      task.classList.add('removed');
+      setTimeout(function() {
+        tasks.removeChild(task);
+      }, 290);
+      tasks.removeChild(task);
+    })
+    tasks.appendChild(task);
+    input.value = '';
+    console.log(list.toString());
+  })
+</script>
+
+</body>
+</html>
