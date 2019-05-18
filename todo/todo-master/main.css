@@ -32,6 +32,8 @@ input[type='text']               {
   border:none;
   border-bottom:1px solid #757575;
   outline: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 input:focus         { outline:none; }
 
@@ -96,14 +98,6 @@ input:focus ~ label, input:valid ~ label        {
   right:50%; 
 }
 
-.task {
-  border: 1px solid #333;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
@@ -135,48 +129,32 @@ input:focus ~ .highlight {
 @keyframes inputHighlighter {
     from { background:#000; }
   to    { width:0; background:transparent; }
+
+@keyframes removed {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
-@media all and (max-width: 480px){
-h2{
-  font-size: 10vmin;
-}
+  .removed {
+    animation: removed 0.3s;
+  }
 
-input[type='text'] {
-  font-size: 7vmin;
-}
+  #tasks p {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3;
+  }
 
-label {
-  font-size: 5.5evmin;
-  top: 4vmin;
-
-}
-
-input: focus ~ label, input: valid ~ label {
-  font-size: 3.5vmin;
-  top: -3.5vmin;
-}
-
-#submit {
-  height: 70px;
-  font-size: 5vmin;
-}
-
-.task {
-  font-size: 7vmin;
-}
-
-.container {
-  width: 95%;
-  margin: auto;
-  padding: 0;
-}
-
-.bar {
-  width: 100#;
-}
-}
-
-@media all and (min-width: 1024px) {
-
-}
+  @media (pointer: fine) {
+    #tasks p:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  }

@@ -4,7 +4,6 @@
 	<link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<meta charset="UTF-8">
-  <meta name="viewport" content='width=device-width, initial-scale=1'>
 	<title>Test-Form</title>
 </head>
 <body>
@@ -20,7 +19,7 @@
       <span class="highlight"></span>
       <span class="bar"></span>
       <label>Добавить задачу</label>
-      <input type="submit" id="submit" value='Add' >
+      <input type="submit" id="submit" >
     </div>
       
 <!--     <div class="group">
@@ -45,20 +44,24 @@
   var list = [];
 
   submit.addEventListener('click', function(e) {
+    if (!input.value){
+      retutn;
+    }
     e.preventDefault();
     list.push(input.value);
-    var task = document.createElement('div');
-    task.classList.add('task');
+    var task = document.createElement('p');
     task.textContent = input.value;
-    task.addEventListener('click', function() {
-      console.log(task);
+    task.addEventListener('click', function () {
+      list.splice(list.indexOf(task.textContent), 1);
+      task.classList.add('removed');
+      setTimeout(function() {
+        tasks.removeChild(task);
+      }, 290);
       tasks.removeChild(task);
-      list = list.splice(1, this.textContent)
-      console.log(list)
     })
     tasks.appendChild(task);
     input.value = '';
-    console.log(list);
+    console.log(list.toString());
   })
 </script>
 
