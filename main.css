@@ -2,7 +2,8 @@
 
 .container      { 
   font-family:'Roboto';
-  width:600px; 
+  max-width:600px; 
+  width: 100%;
   margin:30px auto 0; 
   display:block; 
   background:#FFF;
@@ -82,7 +83,7 @@ input:focus ~ label, input:valid ~ label        {
   color:#000;
 }
 
-.bar    { position:relative; display:block; width:500px; }
+.bar    { position:relative; display:block; max-width:500px; width: 100%;}
 .bar:before, .bar:after     {
   content:'';
   height:4px; 
