@@ -83,7 +83,7 @@ input:focus ~ label, input:valid ~ label        {
   color:#000;
 }
 
-.bar    { position:relative; display:block; max-width:500px; width: 100%;}
+.bar    { position:relative; display:block; max-width:500px; width: calc(100% * 5 / 6);}
 .bar:before, .bar:after     {
   content:'';
   height:4px; 
